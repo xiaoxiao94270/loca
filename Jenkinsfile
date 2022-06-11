@@ -3,7 +3,7 @@ pipeline {
   
   environment {
 	  NEW_V = '1.3'
-	  SERVER_CREDENTIALS = credentails('server-credentials')
+	  SERVER_CREDENTIALS = credentials('server-credentials')
   }
   stages {
     stage("build") {
