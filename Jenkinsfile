@@ -21,10 +21,8 @@ pipeline {
     stage("deploy") {
       steps {
         echo 'toto deploying'
-	withCredentials([
-	usernamePassword(credentialsID: 'server-credentials', usernameVariable: 'USER', passwordVariable: 'PSW')
-]) {
-	echo "user: ${USER} password : ${PSW}"
+	withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'server-credentials', usernameVariable: 'USERN', passwordVariable: 'PASSW']]) {
+	echo "cf login some.awesome.url -u $USERNAME -p $PASSWORD"
 }
       }
     }
