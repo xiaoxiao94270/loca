@@ -5,6 +5,11 @@ pipeline {
 	  NEW_V = '1.3'
 	  SERVER_CREDENTIALS = credentials('server-credentials')
   }
+  parameters {
+	string(name: 'VERS', defaultValue: '', description: 'version to')
+	choice(name: 'VERS2', choices: ['1.1','1.2'], description: 'des')
+}
+
   stages {
     stage("build") {
       steps {
@@ -14,8 +19,14 @@ pipeline {
       }
     }
     stage("test") {
+      when {
+	expression {
+		params.VERS == ''
+	}
+}
       steps {
         echo 'toto test'
+	echo "VERS2: ${VERS2}"
       }
     }
     stage("deploy") {
