@@ -22,7 +22,7 @@ pipeline {
       steps {
         echo 'toto deploying'
 	withCredentials([
-	usernamePassword(credentials: 'server-credentials', usernameVariable: USER, passwordVariable: PSW)
+	usernamePassword(credentialsID: 'server-credentials', usernameVariable: 'USER', passwordVariable: 'PSW')
 ]) {
 	echo "user: ${USER} password : ${PSW}"
 }
