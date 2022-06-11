@@ -22,7 +22,7 @@ pipeline {
       steps {
         echo 'toto deploying'
 	withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId:'server-credentials', usernameVariable: 'USERN', passwordVariable: 'PASSW']]) {
-	echo "cf login some.awesome.url -u $USERNAME -p $PASSWORD"
+	echo "cf login some.awesome.url -u $USERN -p $PASSW"
 }
       }
     }
