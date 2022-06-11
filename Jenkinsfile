@@ -3,12 +3,14 @@ pipeline {
   
   environment {
 	  NEW_V = '1.3'
+	  SERVER_CREDENTIALS = credentails('server-credentials')
   }
   stages {
     stage("build") {
       steps {
         echo 'toto building'
         echo "version : ${NEW_V}"
+	      echo "credentials : ${SERVER_CREDENTIALS}"
       }
     }
     stage("test") {
