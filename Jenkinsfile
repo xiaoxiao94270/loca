@@ -1,6 +1,6 @@
+  def gv
 pipeline {
   agent any
-  def gv
   environment {
 	  NEW_V = '1.3'
 	  SERVER_CREDENTIALS = credentials('server-credentials')
